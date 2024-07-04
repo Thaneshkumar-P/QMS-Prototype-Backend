@@ -14,6 +14,14 @@ import 'dotenv/config.js'
 
 var app = express()
 
+app.use((req, res, next) => {
+    if (req.url === '/favicon.ico') {
+      res.status(204).end();
+    } else {
+      next();
+    }
+  });
+  
 app.use(bodyParser.json())
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 app.use(cookieParser())
@@ -361,7 +369,7 @@ app.get('/test', (req, res) => {
     res.send('Test endpoint');
 });
 
-app.listen(4000, () => {
+app.listen(process.env.GQPORT, () => {
     console.log(`GraphQL running on port ${process.env.GQPORT}`)
 })
 
