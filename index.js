@@ -6,7 +6,6 @@ import { createHandler } from "graphql-http/lib/use/express"
 import { buildSchema } from 'graphql'
 import { User } from './models/User.js'
 import { Project } from './models/Project.js'
-import { ruruHTML } from "ruru/server";
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
