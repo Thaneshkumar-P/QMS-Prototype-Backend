@@ -345,9 +345,7 @@ app.post("/set-cookie", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    req.cookies
-    res.type("html")
-    res.end(ruruHTML({ endpoint: "/graphql" }))
+    res.send(200)
 })
   
 app.all('/graphql', createHandler({
