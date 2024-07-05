@@ -343,7 +343,8 @@ app.post("/set-cookie", (req, res) => {
         res.cookie('token', req.body.token, {
             sameSite: 'none',
             // httpOnly: true,
-            secure: true
+            secure: true,
+            expires: new Date() + 900000000
         })
         res.send()
     }
