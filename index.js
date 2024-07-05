@@ -341,6 +341,7 @@ const root = {
 app.post("/set-cookie", (req, res) => {
     try{
         res.cookie('token', req.body.token, {
+            sameSite: 'none'
             // httpOnly: true,
             // secure: true
         })
