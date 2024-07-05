@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   });
   
 app.use(bodyParser.json())
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+app.use(cors({ credentials: true, origin: process.env.origin }))
 app.use(cookieParser())
 
 mongoose.connect(process.env.mongoDB, {
@@ -352,7 +352,7 @@ app.post("/set-cookie", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    res.send(200)
+    res.send('Hello world')
 })
   
 app.all('/graphql', createHandler({
